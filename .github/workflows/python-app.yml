@@ -26,7 +26,6 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
-        # python3 -m venv calculator
         pip install flake8 pytest
         pip install pytest-cov
     - name: Lint with flake8
@@ -37,6 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        cd /home/runner/work/cicdTest/cicdTest
         python3 -m venv calculator
         . calculator/bin/activate
         pytest -v -conv=calculator
